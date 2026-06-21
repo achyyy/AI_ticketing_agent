@@ -38,6 +38,7 @@ This application is a comprehensive web based internal ticketing tool designed t
    ```
 3. Run the main server application using Uvicorn:
    ```bash
-   uvicorn main:app --reload
+   uvicorn main:app --reload 
    ```
+   (side note, if you prefer a cleaner reload experience, use ```uvicorn main:app --reload --reload-exclude "*.db" --reload-exclude ".venv"```)
 4. Open your web browser and navigate to `http://localhost:8000` to access the application.
