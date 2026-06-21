@@ -1,0 +1,64 @@
+# Python Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+*.egg-info/
+
+# Python Cache & Compiled Files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Database Files
+*.db
+*.sqlite
+*.sqlite3
+tickets.db
+
+# ChromaDB Data Directory
+chroma_data/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build & Distribution
+dist/
+build/
+*.egg
+.eggs/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+logs/
+
+# Misc
+.cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json

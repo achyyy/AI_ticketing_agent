@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Support Ticket</title>
+    <link rel="stylesheet" href="css/style.css?v=5">
+</head>
+
+<body>
+    <header class="login-header" style="margin-top: 10px;">
+        <h1>Raise a Support Request</h1>
+        <p>Describe your issue below or check your recent tickets.</p>
+        <a href="index.html" class="back-link" title="Back to Portal Selection"> <svg xmlns="http://www.w3.org/2000/svg"
+                height="40px" viewBox="0 -960 960 960" width="40px" fill="#e3e3e3">
+                <path
+                    d="M480-329.33 526.67-376 456-446.67h177.33v-66.66H456L526.67-584 480-630.67 329.33-480 480-329.33ZM480-80q-82.33 0-155.33-31.5-73-31.5-127.34-85.83Q143-251.67 111.5-324.67T80-480q0-83 31.5-156t85.83-127q54.34-54 127.34-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82.33-31.5 155.33-31.5 73-85.5 127.34Q709-143 636-111.5T480-80Zm0-66.67q139.33 0 236.33-97.33t97-236q0-139.33-97-236.33t-236.33-97q-138.67 0-236 97-97.33 97-97.33 236.33 0 138.67 97.33 236 97.33 97.33 236 97.33ZM480-480Z" />
+            </svg> </a>
+    </header>
+
+    <div class="employee-dashboard" style="margin: 0 auto; padding-bottom: 40px;">
+        <div class="form-container">
+            <form id="ticketForm" class="ticket-form">
+                <div class="form-group">
+                    <label for="title">Issue Title</label>
+                    <input type="text" id="title" required placeholder="e.g., VPN login failing, broken desk chair">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Detailed Description</label>
+                    <textarea id="description" rows="5" required
+                        placeholder="Provide as much context as possible to help the team resolve your issue quickly..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="department">Target Department</label>
+                        <select id="department" required>
+                            <option value="Auto-Assign" selected>AI Auto-Assign</option>
+                            <option value="IT">IT Support</option>
+                            <option value="HR">Human Resources</option>
+                            <option value="Finance">Finance & Accounts</option>
+                            <option value="Admin">Administration</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="urgency">Urgency Level</label>
+                        <select id="urgency" required>
+                            <option value="Low">Low</option>
+                            <option value="Medium" selected>Medium</option>
+                            <option value="High">High</option>
+                            <option value="Critical">Critical (System Down)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="loadingIndicator" class="loading-box hidden">
+                    <div class="spinner"></div>
+                    <p>AI is analyzing context and routing ticket...</p>
+                </div>
+
+                <div id="responseMessage" class="alert-box hidden"></div>
+
+                <div class="form-actions" style="display: flex; gap: 10px; margin-top: 15px;">
+                    <button type="button" id="deflectBtn" class="btn-secondary">Check for Instant Solution</button>
+                    <button type="submit" id="submitBtn" class="btn-submit">Submit Ticket</button>
+                </div>
+
+                <div id="deflectionBox" class="alert-box hidden" style="margin-top: 20px;"></div>
+            </form>
+        </div>
+
+        <section class="recent-tickets-section">
+            <div id="dashboardNotification" class="hidden"></div>
+            <h2>My Recent Tickets</h2>
+            <div id="recentTicketsList" class="queue-list" style="max-height: 400px;">
+                <!-- Cards will be populated here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal for Ticket Details -->
+    <div id="ticketModal" class="modal hidden">
+        <div class="modal-content">
+            <span id="closeModalBtn" class="close-btn">&times;</span>
+            <div class="detail-meta-row">
+                <span id="modalId" class="ticket-id-tag">#0</span>
+                <span id="modalUrgency" class="badge">Urgency</span>
+                <span id="modalStatus" class="badge">Status</span>
+            </div>
+            <h2 id="modalTitle">Issue Title</h2>
+            <hr class="divider">
+            <div class="description-section">
+                <h3 style="color: var(--nudge-brown); margin-bottom: 8px;">Employee Description</h3>
+                <p id="modalDescription" class="body-text">Description contents...</p>
+            </div>
+            <div id="modalAgentNote" class="modal-agent-note hidden">
+                <strong style="color: var(--nudge-brown);">Agent Note:</strong> <span id="modalAgentNoteText"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/employee.js"></script>
+</body>
+
+</html>

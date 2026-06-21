@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <link rel="stylesheet" href="css/style.css?v=5">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            background: var(--white);
+            border: 1px solid var(--nudge-border);
+            border-radius: 4px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .chart-container h3 {
+            color: var(--nudge-brown);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 250px;
+            width: 100%;
+        }
+
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .analytics-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dashboard-container" style="max-width: 1200px; width: 100%; padding-top: 20px;">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <a href="index.html" class="back-link"
+                    style="position: relative; left: 0; top: 0; width: 40px; height: 40px; margin-bottom: 10px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
+                        fill="currentColor">
+                        <path
+                            d="M480-329.33 526.67-376 456-446.67h177.33v-66.66H456L526.67-584 480-630.67 329.33-480 480-329.33ZM480-80q-82.33 0-155.33-31.5-73-31.5-127.34-85.83Q143-251.67 111.5-324.67T80-480q0-83 31.5-156t85.83-127q54.34-54 127.34-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82.33-31.5 155.33-31.5 73-85.5 127.34Q709-143 636-111.5T480-80Zm0-66.67q139.33 0 236.33-97.33t97-236q0-139.33-97-236.33t-236.33-97q-138.67 0-236 97-97.33 97-97.33 236.33 0 138.67 97.33 236 97.33 97.33 236 97.33ZM480-480Z" />
+                    </svg>
+                </a>
+                <h1>Analytics & Reporting</h1>
+                <p>Global ticket metrics, department loads, and AI routing accuracy.</p>
+            </div>
+            <div class="header-stats">
+                <div class="stat-box">
+                    <span class="stat-label">Total Tickets</span>
+                    <span id="statTotal" class="stat-count">0</span>
+                </div>
+                <div class="stat-box" style="border-left: 4px solid var(--nudge-btn);">
+                    <span class="stat-label">AI Routing Accuracy</span>
+                    <span id="statAiAccuracy" class="stat-count" style="color: var(--nudge-btn);">0%</span>
+                </div>
+            </div>
+        </header>
+
+        <div id="loadingIndicator" class="loading-box">
+            <div class="spinner"></div>
+            <p>Loading analytics data...</p>
+        </div>
+
+        <div id="analyticsContent" class="hidden" style="flex-grow: 1; overflow-y: auto; padding-bottom: 40px;">
+            <div class="analytics-grid">
+                <!-- Row 1 -->
+                <div class="chart-container">
+                    <h3>Tickets by Department</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="deptChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3>Ticket Status Breakdown</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="statusChart"></canvas>
+                    </div>
+                </div>
+                <!-- Row 2 -->
+                <div class="chart-container">
+                    <h3>Tickets by Urgency</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="urgencyChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3>AI Auto-Routing Checks</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="aiAccuracyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/analytics.js"></script>
+</body>
+
+</html>

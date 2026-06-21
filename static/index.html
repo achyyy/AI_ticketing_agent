@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Ticketing System - Demo Portal</title>
+    <link rel="stylesheet" href="css/style.css?v=5">
+</head>
+
+<body>
+    <div class="login-container">
+        <header class="login-header">
+            <h1>Internal Ticketing tool (DEMO)</h1>
+            <p>Select a persona to enter the evaluation dashboard environment.</p>
+        </header>
+
+        <section class="persona-section">
+            <h2>End-User Access</h2>
+            <div class="persona-grid single-item">
+                <a href="employee.html" class="persona-card employee-card">
+                    <h3>Raise a Support Ticket</h3>
+                    <p>Access the interface used by employees to report system issues.</p>
+                    <span class="badge">Employee View</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="persona-section">
+            <h2>Internal Department Queues</h2>
+            <div class="persona-grid">
+                <a href="agent.html?department=IT" class="persona-card agent-card">
+                    <h3>IT Support</h3>
+                    <p>Manage hardware, system credentials, and infrastructure queues.</p>
+                    <span class="badge dept-it">IT Agent</span>
+                </a>
+
+                <a href="agent.html?department=HR" class="persona-card agent-card">
+                    <h3>Human Resources</h3>
+                    <p>Review policy queries, leave coordination, and payroll updates.</p>
+                    <span class="badge dept-hr">HR Agent</span>
+                </a>
+
+                <a href="agent.html?department=Finance" class="persona-card agent-card">
+                    <h3>Finance & Accounts</h3>
+                    <p>Audit employee expense allocations and corporate invoices.</p>
+                    <span class="badge dept-finance">Finance Agent</span>
+                </a>
+
+                <a href="agent.html?department=Admin" class="persona-card agent-card">
+                    <h3>Administration</h3>
+                    <p>Track workplace facilities, badges, and spatial inventory requests.</p>
+                    <span class="badge dept-admin">Admin Agent</span>
+                </a>
+            </div>
+        </section>
+
+        <footer
+            style="margin-top: 40px; text-align: center; border-top: 1px solid var(--nudge-border); padding-top: 20px;">
+            <a href="analytics.html"
+                style="color: var(--nudge-btn); font-weight: 600; text-decoration: none; font-size: 0.95rem;">Click here
+                to View Analytics & Reporting Dashboard</a>
+
+            <div class="site-footer">
+                <span>Developed by Achintya Rao K</span>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

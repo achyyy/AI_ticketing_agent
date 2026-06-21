@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Department Queue Dashboard</title>
+    <link rel="stylesheet" href="css/style.css?v=5">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <a href="index.html" class="back-link"> <svg xmlns="http://www.w3.org/2000/svg" height="40px"
+                        viewBox="0 -960 960 960" width="40px" fill="#e3e3e3">
+                        <path
+                            d="M480-329.33 526.67-376 456-446.67h177.33v-66.66H456L526.67-584 480-630.67 329.33-480 480-329.33ZM480-80q-82.33 0-155.33-31.5-73-31.5-127.34-85.83Q143-251.67 111.5-324.67T80-480q0-83 31.5-156t85.83-127q54.34-54 127.34-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82.33-31.5 155.33-31.5 73-85.5 127.34Q709-143 636-111.5T480-80Zm0-66.67q139.33 0 236.33-97.33t97-236q0-139.33-97-236.33t-236.33-97q-138.67 0-236 97-97.33 97-97.33 236.33 0 138.67 97.33 236 97.33 97.33 236 97.33ZM480-480Z" />
+                    </svg> </a>
+                <h1 id="dashboardTitle">Department Queue</h1>
+                <p>Monitor, track, and resolve open internal team service requests.</p>
+            </div>
+
+            <div class="header-stats">
+                <div class="stat-box">
+                    <span class="stat-label">Total Tickets</span>
+                    <span id="statTotal" class="stat-count">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Open Tickets</span>
+                    <span id="statOpen" class="stat-count count-open">0</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="dashboard-layout">
+            <section class="queue-panel">
+                <h2>Active Request Queue</h2>
+                <div id="ticketQueueList" class="queue-list">
+                    <p class="loading-text">Loading queue records...</p>
+                </div>
+            </section>
+
+            <section id="detailPanel" class="detail-panel empty-state">
+                <div id="detailPlaceholder" class="placeholder-content">
+                    <div class="icon-file" style="font-family: monospace;">[DOC]</div>
+                    <h3>No Ticket Selected</h3>
+                    <p>Select an active item from the left queue panel to view description details and initialize
+                        resolution actions.</p>
+                </div>
+
+                <div id="detailContent" class="detail-content hidden">
+                    <div class="detail-meta-row">
+                        <span id="detailId" class="ticket-id-tag">#0</span>
+                        <span id="detailUrgency" class="badge">Urgency</span>
+                        <span id="detailStatus" class="badge">Status</span>
+                    </div>
+
+                    <h2 id="detailTitle">Issue Title</h2>
+
+                    <hr class="divider">
+
+                    <div class="description-section">
+                        <h3>Employee Description</h3>
+                        <p id="detailDescription" class="body-text">Description contents...</p>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="resolution-actions-section">
+                        <h3>Agent Response Actions</h3>
+
+
+                        <div class="resolution-form-container">
+                            <div class="form-group row">
+                                <label for="updateStatus">Update Status:</label>
+                                <select id="updateStatus">
+                                    <option value="Open">Open</option>
+                                    <option value="In Progress">In Progress</option>
+                                    <option value="Resolved">Resolved</option>
+                                    <option value="Closed">Closed</option>
+                                </select>
+                            </div>
+                            <div id="aiCorrectnessGroup" class="form-group row hidden"
+                                style="background: var(--nudge-beige); padding: 10px; border-radius: 4px; margin-bottom: 15px;">
+                                <label
+                                    style="display: flex; align-items: center; gap: 10px; margin: 0; cursor: pointer;">
+                                    <input type="checkbox" id="aiRoutingCorrect" style="width: auto;">
+                                    Was this ticket correctly categorized by AI?
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="agentNotesTextarea">Agent Resolution Notes:</label>
+                                <textarea id="agentNotesTextarea" rows="4"
+                                    placeholder="Enter final resolution notes here..."></textarea>
+                            </div>
+                            <button id="btnSaveResolution" class="btn-primary">Save Resolution</button>
+                            <span id="saveStatusMessage" class="hidden"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/agent.js"></script>
+</body>
+
+</html>
